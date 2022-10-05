@@ -1,5 +1,5 @@
 const mongoose=require("mongoose")
-
+// const product=require("../products/product.schema")
 
 const cartSchema= new mongoose.Schema({
 
@@ -11,7 +11,7 @@ const cartSchema= new mongoose.Schema({
         ref:"user",
         required:true},
 
-    quantity:{type:Number, reuired:true,min:1}
+    quantity:{type:Number,min:1,required:true}
 
 })
 

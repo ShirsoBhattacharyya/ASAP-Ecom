@@ -7,53 +7,48 @@ const Cart=require("./cart.schema")
 
 const app=express.Router();
 
+app.get('/',async(req,res)=>{
+  let cart=await Cart.find();
+  res.send(cart);
+})
+app.get("/:id", async(req,res)=>{
 
-app.get("/:id", (req,res)=>{
+  try{
+    const cartItems=await Cart.find({userId:req.params.id}).populate("productsId")
+    return res.send(cartItems)
+   
 
-    let token=req.header;
-    let [id,email,password]=token.split(":")
-
-try{
-    let userCart=Cart.find({userId:id})
-    return res.send(userCart);
-}
-catch(e){
-
-    return res.status(500).send("Your Cart is Empty")
+}catch(e){
+    res.status(500).send(e.message)
 }
     
 })
 
-app.post("/:id",async(req,res)=>{
-
-    let token=req.header;
-    let [id,email,password]=token.split(":");
-
-
-    try {
+app.post("/:id", async (req, res) => {
+  try {
     let cartItem = await Cart.findOne({
-      user: id,
-      product: req.body.product,
-    }).populate("product");
+      userId:req.params.id,
+      productsId: req.body.productsId,
+    })
 
 
     if (cartItem) {
-
-      let item = await Cart.findByIdAndUpdate(
-        
-        cartItem.id,
+      let item = await Cart.updateOne(
         {
-          quantity: req.body.quantity,
+          userId:req.params.id,
+          productsId: req.body.productsId,
         },
         {
-          new: true,
-        }
-      ).populate("product");
+        $set:{
+          quantity: req.body.quantity,
+        },
+      }
+      )
       return res.send(item);
     } else {
       let item = await Cart.create({
         ...req.body,
-        user: id,
+        userId:req.params.id,
       });
       return res.send(item);
     }
