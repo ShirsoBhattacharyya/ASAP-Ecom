@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
-  productName: { type: String, required: true },
-  productImage: { type: String, required: true },
-  productDesc: { type: String, required: true },
-  productPrice: { type: Number, required: true },
-  productQty: { type: Number, required: true },
+  title: { type: String, required: true },
+  image: { type: String, required: true },
+  description: { type: String, required: true },
+  price: { type: Number, required: true },
+  quantity: { type: Number, required: true },
   category: { type: String, required: true, enum: ["Male", "Female"] },
+  rating:{type:Number, required:true},
   userId: { type: mongoose.Schema.ObjectId, ref: "user", required: true },
 
 });
