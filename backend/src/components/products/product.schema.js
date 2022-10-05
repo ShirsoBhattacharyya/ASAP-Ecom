@@ -6,7 +6,7 @@ const productSchema = new mongoose.Schema({
   description: { type: String, required: true },
   price: { type: Number, required: true },
   quantity: { type: Number, required: true },
-  category: { type: String, required: true, enum: ["Male", "Female"] },
+  category: { type: String, required: true, enum: ["Men", "Women" , "Kids"] },
   rating:{type:Number, required:true},
   userId: { type: mongoose.Schema.ObjectId, ref: "user", required: true },
 
