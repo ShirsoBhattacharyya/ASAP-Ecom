@@ -1,14 +1,14 @@
 import React from 'react'
 import { Box } from '@chakra-ui/react'
-const Women = () => {
+const Cart = () => {
   return (
-    <>
+     <>
     <Box mt={"5%"}>
-   WoMen
+  cart
     </Box>
     
     </>
   )
 }
 
-export default Women
+export default Cart

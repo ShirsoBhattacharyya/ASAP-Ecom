@@ -1,9 +1,8 @@
-import { Box } from '@chakra-ui/react'
 import React from 'react'
-
-const Men = () => {
+import { Box } from '@chakra-ui/react'
+const Kids = () => {
   return (
-    <>
+   <>
     <Box mt={"5%"}>
    Men
     </Box>
@@ -12,4 +11,4 @@ const Men = () => {
   )
 }
 
-export default Men
+export default Kids
