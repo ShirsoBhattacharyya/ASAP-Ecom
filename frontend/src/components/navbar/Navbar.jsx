@@ -1,8 +1,9 @@
 import React from "react";
-import { Box, Flex, Input, Text } from "@chakra-ui/react";
+import { Box, Flex, Input, Text, Image } from "@chakra-ui/react";
 import { RiShoppingCartFill } from "react-icons/ri";
 import { NavLink } from "react-router-dom";
 import LoginPage from "../../pages/loginPage/LoginPage";
+import Logo from '../../assets/asap-logo.png';
 
 const Navbar = () => {
   return (
@@ -16,10 +17,10 @@ const Navbar = () => {
         bg="white"
         
       >
-        <Flex alignItems="center" justifyContent="center" gap={"55%"}>
+        <Flex alignItems="center" justifyContent="center" gap={"45%"} padding="0.5rem 0">
           <Flex alignItems="center" gap="10%">
             <NavLink to="/">
-              <Box>ASAP</Box>
+              <Box><Image src={Logo}/></Box>
             </NavLink>
             <NavLink to="/products/men">
               <Box>
@@ -50,7 +51,7 @@ const Navbar = () => {
 
             <NavLink to="/cart">
               <Box>
-                <RiShoppingCartFill />
+                <RiShoppingCartFill size={26}/>
               </Box>
             </NavLink>
           </Flex>
