@@ -14,7 +14,7 @@ const Cart = () => {
           {/* Cart box */}
 
        
-          <Box width="65%" /*border="1px solid red"*/ minH="550px" >
+          <Box width="65%" ml="10px" /*border="1px solid red"*/ minH="550px" >
 
           <Card />
           <Card />
@@ -35,7 +35,7 @@ const Cart = () => {
           <Flex justifyContent={"space-between"} ><Text fontWeight={"400"}>Delivery Fee </Text><Text fontWeight={"600"}>₹99/-</Text></Flex>
           <Flex justifyContent={"space-between"} ><Text fontSize={"20px"} fontWeight={"600"}>Total Amount</Text><Text fontSize={"20px"} fontWeight={"600"}>₹1,874.00</Text></Flex>
           
-          <Button width="100%" color="white" bgColor="#d5a249" fontWeight="600" fontSize="23px" mt="15px" p="1.5em" >PROCEED TO SHIPPING</Button>
+          <Button width="100%" color="white" bgColor="#d5a249" fontWeight="600" fontSize="23px" mt="15px" p="1.5em" _hover={{bgColor:"teal"}} >PROCEED TO SHIPPING</Button>
           <Text mt="18px" color="#176c93">Having Coupon ?</Text>
           <Flex gap="10px" mt="12px"><Input p="1.3em" focusBorderColor='none' placeholder='Enter Coupon code here'></Input> <Button p="1.3em" width="100px" variant="outline">APPLY</Button></Flex>
           </Flex>
