@@ -20,8 +20,8 @@ const Asapcarousel = () => {
           height={["200px","300px","400px","500px"]}
           
             style={{ width: "100%", }}
-            src="https://i.pinimg.com/originals/45/19/f5/4519f59b3bcce4d7c99f6d1a9e0d4077.jpg"
-            alt="outlook1"
+            src="https://assets.ajio.com/cms/AJIO/WEB/07102022-d-unisex-main-p1-brands-flat70.png"
+            alt="img1-banner"
           />
         </Box>
         <Box>
@@ -29,9 +29,8 @@ const Asapcarousel = () => {
           height={["200px","300px","400px","500px"]}
           
             style={{ width: "100%", }}
-            src="https://assetscdn1.paytm.com/images/catalog/view_item/787363/1617369550601.jpg?imwidth=1600&impolicy=hq
-"
-            alt="outlook1"
+            src="https://assets.ajio.com/cms/AJIO/WEB/07102022-D-MHP-maincarousel-p3-premiumbrands-4070.jpg"
+            alt="img2-banner"
           />
         </Box>
         <Box>
@@ -39,9 +38,17 @@ const Asapcarousel = () => {
           height={["200px","300px","400px","500px"]}
           
             style={{ width: "100%", }}
-            src="https://cdn.fcglcdn.com/brainbees/images/marketing/d/fashion_week/banner-1-24092018.jpg
-            "
-            alt="outlook1"
+            src="https://assets.ajio.com/cms/AJIO/WEB/07102022-WHP-D-maincarousel-p2-dnmx-teamspirit-upto70.jpg"
+            alt="img3-banner"
+          />
+        </Box>
+        <Box>
+          <Image
+          height={["200px","300px","400px","500px"]}
+          
+            style={{ width: "100%", }}
+            src="https://assets.ajio.com/cms/AJIO/WEB/07102022-D-KHP-topbannercarousel-p7-brands-min30.jpg"
+            alt="img4-banner"
           />
         </Box>
       </Carousel>
