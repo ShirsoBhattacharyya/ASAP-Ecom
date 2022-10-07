@@ -10,7 +10,7 @@ const Navbar = () => {
     <>
       <Box
         width={"100%"}
-        border="1px solid"
+       
         position="fixed"
         top="0"
         zIndex={5}
