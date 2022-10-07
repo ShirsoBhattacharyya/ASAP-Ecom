@@ -10,6 +10,12 @@ import {
     useDisclosure,
     Button,
     Input,
+    Tabs,
+    TabList,
+    TabPanels,
+    TabPanel,
+    Tab,
+    Text
   } from '@chakra-ui/react'
 
 
@@ -34,10 +40,29 @@ const LoginPage = () => {
       <DrawerOverlay />
       <DrawerContent>
         <DrawerCloseButton />
-        <DrawerHeader>Create your account</DrawerHeader>
+        <DrawerHeader>Sign in to access all the latest products</DrawerHeader>
 
         <DrawerBody>
-          <Input placeholder='Type here...' />
+        <Tabs size='md' variant='enclosed'>
+          <TabList>
+            <Tab fontWeight="bold">Login</Tab>
+            <Tab fontWeight="bold">Signup</Tab>
+          </TabList>
+          <TabPanels>
+            <TabPanel>
+              <Input type="email" placeholder="Enter email" m="0.5rem"/>
+              <Input type="password" placeholder="Enter password"  m="0.5rem"/>
+              <Text m="0.5rem" textDecoration='underline' color="blue" cursor="pointer">Forgot Password?</Text>
+              <Button colorScheme="blue" m="0.5rem">Login</Button>
+            </TabPanel>
+            <TabPanel>
+              <Input type="text" placeholder="Enter username" m="0.5rem"/>
+              <Input type="email" placeholder="Enter email" m="0.5rem"/>
+              <Input type="password" placeholder="Enter password"  m="0.5rem"/>
+              <Button variant="outline" m="0.5rem">Signup</Button>
+            </TabPanel>
+          </TabPanels>
+        </Tabs>
         </DrawerBody>
 
         <DrawerFooter>
