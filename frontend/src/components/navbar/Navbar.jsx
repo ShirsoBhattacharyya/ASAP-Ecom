@@ -43,11 +43,11 @@ const Navbar = () => {
             <Box>
               <Input variant='flushed' placeholder="Search Products...." />
             </Box>
-            <NavLink to="/login">
+            {/* <NavLink to="/login"> */}
               <Box>
                <LoginPage/>
               </Box>
-            </NavLink>
+            {/* </NavLink> */}
 
             <NavLink to="/cart">
               <Box>

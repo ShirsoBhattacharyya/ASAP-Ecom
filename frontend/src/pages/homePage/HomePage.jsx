@@ -1,4 +1,4 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
 import React from "react";
 import Asapcarousel from "./Carousel";
 import Carousel from "react-elastic-carousel";
@@ -17,33 +17,33 @@ const breakPoints = [
 const women = [
   {
     image:
-      "https://static.zara.net/photos///2022/I/0/1/p/8216/707/645/2/w/750/8216707645_1_1_1.jpg?ts=1660821808747",
-    title: "HIGH-WAIST TROUSERS",
+      "https://assets.ajio.com/medias/sys_master/root/20210427/itU2/608709dff997dd7b64c337e5/karigari_mustard_printed_sleeveless_a-line_kurta.jpg",
+    title: "Printed Mustard Sleeveless A-line Kurta",
   },
   {
     image:
-      "https://static.zara.net/photos///2022/I/0/1/p/8457/707/600/2/w/602/8457707600_15_1_1.jpg?ts=1660822613272",
-    title: "HIGH-WAIST TROUSERS",
+      "https://assets.ajio.com/medias/sys_master/root/20220201/WhoA/61f962fdaeb26921af854522/karigari_orange_printed_straight_kurta_with_insert_pocket.jpg",
+    title: "Orange Printed Straight Kurta",
   },
   {
     image:
-      "https://static.zara.net/photos///2022/I/0/1/p/4437/265/800/2/w/602/4437265800_2_1_1.jpg?ts=1660821001541",
-    title: "HIGH-WAIST TROUSERS",
+      "https://assets.ajio.com/medias/sys_master/root/20220801/mdXP/62e7f81aaeb26921afb70e52/nike_black_logo_print_leggings_with_elasticated_waist.jpg",
+    title: "Nike black logo leggings",
   },
   {
     image:
-      "https://static.zara.net/photos///2022/I/0/1/p/8461/268/500/2/w/602/8461268500_1_1_1.jpg?ts=1660820972049",
-    title: "HIGH-WAIST TROUSERS",
+      "https://assets.ajio.com/medias/sys_master/root/20220316/OwTm/6230e2fdf997dd03e2153d18/nike_grey_logo_print_crew-neck_t-shirt.jpg",
+    title: "Logo Print Crew-Neck T-Shirt",
   },
   {
     image:
-      "https://static.zara.net/photos///2022/I/0/1/p/4437/246/800/17/w/437/4437246800_2_1_1.jpg?ts=1660820936015",
-    title: "HIGH-WAIST TROUSERS",
+      "https://assets.ajio.com/medias/sys_master/root/20220415/zW1Y/625991ddaeb26921af240b15/nike_black_hoodie_with_drawstring.jpg",
+    title: "Black Hoodie with drawstring",
   },
   {
     image:
-      "https://static.zara.net/photos///2022/I/0/1/p/8463/277/330/2/w/602/8463277330_1_1_1.jpg?ts=1660821820809",
-    title: "HIGH-WAIST TROUSERS",
+      "https://assets.ajio.com/medias/sys_master/root/20211119/ua5f/61969f18f997ddf8f10de881/nike_white_crew-neck_t-shirt_with_brand_logo.jpg",
+    title: "Crew Neck TShirt with Brand Logo",
   }
 ];
 
@@ -121,22 +121,28 @@ const HomePage = () => {
       <Box variant="ghost" mt={["12%", "10%", "7%", "5%"]}>
         <Asapcarousel />
       </Box>
-
-      <Box mt={["12%", "10%", "7%", "3%"]} backgroundColor="#ecf4ff " pt={"3rem"} >
+      <hr/>
+      <Box>
+        <Image width='100%' src='https://assets.ajio.com/cms/AJIO/WEB/D-dazzlingfashionpicks-header.jpg'/>
+      </Box>
+      {/* Women */}
+      <Box backgroundColor="#ecf4ff" pt={"2rem"}>
         <Flex gap={2}>
-          <Box height="390px" width="30%">
-            <Image src={womens} />
+          <Box>
+            <Image src={womens}/>
           </Box>
-          <Box width={"70%"}  height="390px" >
+          <Box width={"70%"}  >
             <Carousel 
-         breakPoints={breakPoints}>
+         breakPoints={breakPoints} >
               {women.map((item) => (
                 <>
                 
-             <Box>
-                 <Image cursor={"pointer"} height={"300px"} width="300px"  src={item.image} alt="pic"/>
-              <Box>
-                <Text>{item.title}</Text></Box>
+             <Box mb="1rem" boxShadow={'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'} borderRadius="8px">
+                 <Image cursor={"pointer"} height={"300px"} width="300px"  src={item.image} alt="pic" borderTopLeftRadius='8px' borderTopRightRadius='8px'/>
+                 <Box p='1rem 0' backgroundColor='#fff' borderBottomLeftRadius="8px" borderBottomRightRadius="8px">
+                    <Text p='0 1rem' fontWeight='500' fontSize='14px'>{item.title}</Text>
+                    <Button m='0 1rem' colorScheme='red'>Add to Cart</Button>
+                  </Box>
              </Box>
              
               </>
@@ -145,44 +151,64 @@ const HomePage = () => {
           </Box>
         </Flex>
       </Box>
-{/* kids */}
-
-<Box mt={["12%", "10%", "7%", "3%"]} bg="#d2fef1" pt={"3rem"}  >
+      <hr/>
+      <Box>
+        <Image width='100%' src='https://assets.ajio.com/cms/AJIO/WEB/D-header%20222.jpg'/>
+      </Box>
+{/* Kids */}
+<Box bg="#d2fef1" pt={"2rem"}  >
         <Flex gap={2}>
          
-          <Box width={"70%"}  height="390px"  >
+          <Box width={"70%"}   >
             <Carousel 
          breakPoints={breakPoints}>
               {kids.map((item) => (
-                <Image cursor={"pointer"} height={"300px"} width="300px"  src={item.image} alt="pic"/>
+                <Box mb="1rem" boxShadow={'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'} borderRadius="8px">
+                  <Image cursor={"pointer"} height={"300px"} width="300px"  src={item.image} alt="pic" borderTopLeftRadius='8px' borderTopRightRadius='8px'/>
+                  <Box p='1rem 0' backgroundColor='#fff' borderBottomLeftRadius="8px" borderBottomRightRadius="8px">
+                    <Text p='0 1rem' fontWeight='500' fontSize='22px'>{item.title}</Text>
+                    <Button m='0 1rem' colorScheme='red'>Add to Cart</Button>
+                  </Box>
+                </Box>
               ))}
             </Carousel>
           </Box>
-          <Box height="390px" width="30%">
+          <Box  width="30%">
             <Image src={kid} />
           </Box>
         </Flex>
       </Box>
-{/* men */}
-
-<Box mt={["12%", "10%", "7%", "3%"]} bg="#ffe4d3" pt={"3rem"} >
+      <hr/>
+      <Box>
+        <Image width='100%' src='https://assets.ajio.com/cms/AJIO/WEB/D-Stylestoshinein-header.jpg'/>
+      </Box>
+{/* Men */}
+<Box bg="#ffe4d3" pt={"2rem"} >
         <Flex gap={2}>
-        <Box  height="390px" width="30%">
+        <Box   width="30%">
             <Image src={mens} />
           </Box>
          
-          <Box width={"70%"}  height="390px" >
+          <Box width={"70%"}  >
             <Carousel 
          breakPoints={breakPoints}>
               {men.map((item) => (
-                <Image cursor={"pointer"} height={"300px"} width="300px"  src={item.image} alt="pic"/>
+                <Box mb="1rem" boxShadow={'rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px'} borderRadius="8px">
+                  <Image cursor={"pointer"} height={"300px"} width="300px"  src={item.image} alt="pic" borderTopLeftRadius='8px' borderTopRightRadius='8px'/>
+                  <Box p='1rem 0' backgroundColor='#fff' borderBottomLeftRadius="8px" borderBottomRightRadius="8px">
+                    <Text p='0 1rem' fontWeight='500' fontSize='22px'>{item.title}</Text>
+                    <Button m='0 1rem' colorScheme='red'>Add to Cart</Button>
+                  </Box>
+                </Box>
               ))}
             </Carousel>
-          </Box>
-         
+          </Box>    
         </Flex>
       </Box>
-
+      <hr/>
+      <Box>
+        <Image src='https://assets.ajio.com/cms/AJIO/WEB/51.1.jpg' alt='Offers' margin='auto' width='100%'/>
+      </Box>
     </>
   );
 };
