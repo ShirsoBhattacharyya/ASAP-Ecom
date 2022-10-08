@@ -57,4 +57,19 @@ app.post("/:id", async (req, res) => {
   }
 });
 
+
+
+
+app.delete("/:id", async (req, res) => {
+  
+  try {
+    const id = req.params.id;
+    let afterDelete = await Cart.findByIdAndDelete(id);
+    res.status(200).send(afterDelete);
+  } catch (e) {
+    console.log(e);
+  }
+});
+
+
 module.exports=app;
