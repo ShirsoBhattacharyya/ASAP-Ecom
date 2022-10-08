@@ -118,7 +118,7 @@ const kids = [
 const HomePage = () => {
   return (
     <>
-      <Box variant="ghost" mt={["12%", "10%", "7%", "5%"]}>
+      <Box variant="ghost" mt={["16%", "15%", "11%", "8%"]}>
         <Asapcarousel />
       </Box>
       <hr/>
