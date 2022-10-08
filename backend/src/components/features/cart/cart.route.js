@@ -57,30 +57,19 @@ app.post("/:id", async (req, res) => {
   }
 });
 
+
+
+
 app.delete("/:id", async (req, res) => {
-
-
+  
   try {
-    if(req.params.id && req.body.productsId ){
-
-      let itemInCart= await Cart.findByIdAndDelete({userId:req.params.id, productsId:req.body.productsId})
-
-      return res.send(itemInCart)
-    }
-    else{
-
-      let itemInCart= await Cart.deleteMany({userId:req.params.id})
-      return res.send(itemInCart)
-
-    }
-
+    const id = req.params.id;
+    let afterDelete = await Cart.findByIdAndDelete(id);
+    res.status(200).send(afterDelete);
+  } catch (e) {
+    console.log(e);
   }
- catch (e) {
-  res.status(500).send(e.message);
-}
-
-})
-
+});
 
 
 module.exports=app;
