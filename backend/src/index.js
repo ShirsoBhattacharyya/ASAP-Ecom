@@ -1,6 +1,6 @@
 const express=require("express")
 const cors=require("cors")
-const PORT =process.env.PORT || 8080
+const PORT =process.env.PORT || 8000
 const userRouter=require('./components/features/users/user.route');
 const connect=require('./components/config/db');
 const { default: mongoose } = require("mongoose");
