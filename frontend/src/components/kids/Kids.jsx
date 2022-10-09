@@ -19,26 +19,32 @@ import { IoIosAdd } from "react-icons/io";
 import { HiMinusSm } from "react-icons/hi";
 
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const Women = () => {
   const [data, setData] = useState([]);
-  const getWomen = async () => {
+  const getKids = async () => {
     let res = await axios.get(
       `https://asap-backend-server-deploy.herokuapp.com/products/Kids`
     );
     setData(res.data);
   };
   useEffect(() => {
-    getWomen();
+    getKids();
   });
-
+  let auth = useSelector(store => store.auth);
+  let [id, email, password] = auth.token.split(":");
   const addproducts=async(productsId)=>{
-    let cart=await axios.post(`https://asap-backend-server-deploy.herokuapp.com/carts/633c8d82ba88d3889a92b852`,{
-    productsId,
-      quantity:1
-    })
-    console.log("cart",cart)
-    console.log("proid",productsId)
+    if(id===""){
+      alert('Please Login First')
+    }else{
+      let cart=await axios.post(`https://asap-backend-server-deploy.herokuapp.com/carts/${id}`,{
+      productsId,
+        quantity:1
+      })
+      console.log("cart",cart)
+      console.log("proid",productsId)
+    }
   }
   
   const handlecart=(productsId)=>{
@@ -55,7 +61,7 @@ const Women = () => {
       </Box>
 
       <Flex>
-        <Box width="17%" p={5} position="fixed" border={"1px solid pink"}>
+        <Box mt="4%" width="17%" p={5} position="fixed" border={"1px solid pink"}>
           <Text fontSize={"xl"} fontWeight="bold">
             Refine by
           </Text>
@@ -233,7 +239,7 @@ const Women = () => {
           </Accordion>
         </Box>
 
-        <Box ml="17%" width={"100%"}>
+        <Box mt="3%" ml="17%" width={"100%"}>
           <SimpleGrid columns={[2, 3, 4, 4]} gap={6}>
             {data.map((d) => {
               return (
@@ -257,9 +263,11 @@ const Women = () => {
                         {d.title}
                       </Text>
                     </Box>
-                    <Button onClick={()=>handlecart(d._id)} m={2} colorScheme={"red"}>
-                      Add To Cart
-                    </Button>
+                    <Flex justifyContent={"center"}>
+                      <Button m={2} onClick={()=>handlecart(d._id)} colorScheme={"red"}>
+                        Add To Cart
+                      </Button>
+                    </Flex>
                   </Box>
                 </>
               );
