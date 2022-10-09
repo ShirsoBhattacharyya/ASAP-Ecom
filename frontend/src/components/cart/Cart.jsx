@@ -7,6 +7,7 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 
 
+
 const getCartItems=(id)=>{
 
 return axios.get(`https://asap-backend-server-deploy.herokuapp.com/carts/${id}`)
@@ -17,11 +18,10 @@ return axios.get(`https://asap-backend-server-deploy.herokuapp.com/carts/${id}`)
 
 const Cart = () => {
 
-  let [cartItem,setCartItem]=useState([])
-  let [cartSum,setCartSum]=useState(0);
   let auth = useSelector(store => store.auth);
   let [id, email, password] = auth.token.split(":"); 
-
+  let [cartItem,setCartItem]=useState([])
+  let [cartSum,setCartSum]=useState(0);
 
 useEffect(()=>{
 
