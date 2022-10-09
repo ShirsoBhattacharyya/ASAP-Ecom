@@ -24,18 +24,18 @@ const Navbar = () => {
             <NavLink to="/">
               <Box><Image src={Logo} height='100px' width='320px' pb={'10px'}/></Box>
             </NavLink>
-            <NavLink to="/products/men">
+            <NavLink to="/products/Men">
               <Box>
                 <Text className={styles.fontStyle}>MEN</Text>
               </Box>
             </NavLink>
-            <NavLink to="/products/women">
+            <NavLink to="/products/Women">
               <Box>
                 <Text className={styles.fontStyle}>WOMEN</Text>
               </Box>
             </NavLink>
 
-            <NavLink to="/products/kids">
+            <NavLink to="/products/Kids">
               <Box>
                 <Text className={styles.fontStyle}>KIDS</Text>
               </Box>

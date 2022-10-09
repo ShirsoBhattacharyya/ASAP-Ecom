@@ -49,6 +49,7 @@ const Women = () => {
   
   const handlecart=(productsId)=>{
     addproducts(productsId)
+    alert('Added to Cart');
   }
 
 

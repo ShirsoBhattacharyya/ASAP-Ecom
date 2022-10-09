@@ -2,9 +2,7 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import PrivateRoute from '../../privateroutes/PrivateRoute'
 import HomePage from '../../pages/homePage/HomePage'
-import LoginPage from '../../pages/loginPage/LoginPage'
-import ProductsPage from '../../pages/productPage/ProductPage'
-import SignUp from '../../pages/signupPage/SignUp'
+import ProductPage from '../../pages/productPage/ProductPage'
 import Cart from '../cart/Cart'
 import Footer from '../footer/Footer'
 import Kids from '../kids/Kids'
@@ -20,10 +18,10 @@ const AllRoutes = () => {
 
     <Routes>
     <Route  path='/' element={<HomePage/>} />
-    <Route  path='/products/:category/:id' element={<ProductsPage/>} />
-    <Route  path='/products/men' element={<Men/>} />
-    <Route  path='/products/women' element={<Women/>} />
-    <Route  path='/products/kids' element={<Kids/>} />
+    <Route  path='/products/:category/:id' element={<ProductPage/>} />
+    <Route  path='/products/Men' element={<Men/>} />
+    <Route  path='/products/Women' element={<Women/>} />
+    <Route  path='/products/Kids' element={<Kids/>} />
     <Route path='/cart' element={
       <PrivateRoute>
         <Cart/>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Navigate,useNavigate } from "react-router-dom";
 import {
   Box,
   Flex,
@@ -49,6 +50,11 @@ const Women = () => {
 
 const handlecart=(productsId)=>{
   addproducts(productsId)
+  alert('Added to Cart');
+}
+const navigate=useNavigate();
+const AddProps=(category,id)=>{
+ return navigate(`/products/${category}/${id}`)
 }
   return (
     <>
@@ -242,7 +248,7 @@ const handlecart=(productsId)=>{
             {data.map((d) => {
               return (
                 <>
-                  <Box key={d._id}>
+                  <Box key={d._id} onClick={()=>AddProps(d.category,d._id)}>
                     <Image
                       borderRadius="8px"
                       margin={"auto"}
