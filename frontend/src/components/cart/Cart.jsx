@@ -4,11 +4,12 @@ import adv from "./images/adv.jpg"
 import Card from './Card'
 import { useToast } from '@chakra-ui/react'
 import axios from 'axios'
+import { useSelector } from 'react-redux'
 
 
-const getCartItems=()=>{
+const getCartItems=(id)=>{
 
-return axios.get("https://asap-backend-server-deploy.herokuapp.com/carts/633c8d82ba88d3889a92b852")
+return axios.get(`https://asap-backend-server-deploy.herokuapp.com/carts/${id}`)
 
 
 }
@@ -18,12 +19,13 @@ const Cart = () => {
 
   let [cartItem,setCartItem]=useState([])
   let [cartSum,setCartSum]=useState(0);
-    
+  let auth = useSelector(store => store.auth);
+  let [id, email, password] = auth.token.split(":"); 
 
 
 useEffect(()=>{
 
-  updateCartItems()
+  updateCartItems(id)
 
 },[])
 
@@ -35,25 +37,25 @@ useEffect(()=>{
 },[cartItem])
 
 
-const updateCartItems=()=>{
+const updateCartItems=(id)=>{
 
-  getCartItems().then((res)=>{setCartItem(res.data)
+  getCartItems(id).then((res)=>{setCartItem(res.data)
  
 })
 }
 
-const removePro = async (id) => {
+const removePro = async (p_id) => {
   const res = await axios.delete(
-    `https://asap-backend-server-deploy.herokuapp.com/carts/${id}`
+    `https://asap-backend-server-deploy.herokuapp.com/carts/${p_id}`
   );
-    updateCartItems();
+    updateCartItems(id);
 };
 
-const quantityChange = async (item,qty) => {
+const quantityChange = async (item,qty,userid=id) => {
   console.log(item.quantity)
   console.log("Quantity: ",qty)
-  const res = await axios.post(`https://asap-backend-server-deploy.herokuapp.com/carts/633c8d82ba88d3889a92b852`,{productsId:item.productsId._id,quantity:qty});
-    updateCartItems();
+  const res = await axios.post(`https://asap-backend-server-deploy.herokuapp.com/carts/${userid}`,{productsId:item.productsId._id,quantity:qty});
+    updateCartItems(userid);
 };
 
 console.log(cartItem)
@@ -62,7 +64,7 @@ console.log(cartItem)
   const toast = useToast()
   return (
      <>
-    <Box mt={"5%"} /*border="1px solid black"*/  mb="1%">
+    <Box mt={"8%"} /*border="1px solid black"*/  mb="1%">
       <Image width="100%" height="100px" src={adv} alt="image"  />
       <Box  /*border="1px solid green"*/ mt="1%" width="100%">
         <Flex justifyContent={"space-between"}>
