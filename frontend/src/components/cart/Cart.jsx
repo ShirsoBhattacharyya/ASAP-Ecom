@@ -5,7 +5,7 @@ import Card from './Card'
 import { useToast } from '@chakra-ui/react'
 import axios from 'axios'
 import { useSelector } from 'react-redux'
-
+import StripeCheckout from 'react-stripe-checkout';
 
 
 const getCartItems=(id)=>{
@@ -23,6 +23,11 @@ const Cart = () => {
   let [cartItem,setCartItem]=useState([])
   let [cartSum,setCartSum]=useState(0);
 
+const handleToken=async(token,addresses)=>{
+  const res=await axios.post(`http://localhost:8000/checkout`,{cartItem,token});
+  console.log(res.status);
+  // Stripe.setPublishableKey()
+}
 useEffect(()=>{
 
   updateCartItems(id)
@@ -101,7 +106,7 @@ console.log(cartItem)
           duration: 2000,
           isClosable: true,
         })
-      } >PROCEED TO SHIPPING</Button>
+      } ><StripeCheckout stripeKey='pk_test_51Lr0OFSB7sSZv0kJARz0bGoRJyWkRRatt9WUk1qjXJMW0zSG04Ju33L5R8CRp1GMDV9Lqz9frsonmgYtpRFXJjOP0028prHc0W' token={handleToken} amount={cartSum} billingAddress shippingAddress>PROCEED TO SHIPPING</StripeCheckout></Button>
           <Text mt="18px" color="#176c93">Having Coupon ?</Text>
           <Flex gap="10px" mt="12px"><Input p="1.3em" focusBorderColor='none' placeholder='Enter Coupon code here'></Input> <Button p="1.3em" width="100px" variant="outline">APPLY</Button></Flex>
           </Flex>
