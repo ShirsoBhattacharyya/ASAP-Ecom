@@ -20,6 +20,7 @@ import { HiMinusSm } from "react-icons/hi";
 
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const Women = () => {
   const [data, setData] = useState([]);
@@ -51,7 +52,10 @@ const Women = () => {
     addproducts(productsId)
     alert('Added to Cart');
   }
-
+  const navigate=useNavigate();
+  const AddProps=(category,id)=>{
+  return navigate(`/products/${category}/${id}`)
+  }
   return (
     <>
       <Box mt={"5%"}>
@@ -244,7 +248,7 @@ const Women = () => {
             {data.map((d) => {
               return (
                 <>
-                  <Box>
+                  <Box key={d._id} onClick={()=>AddProps(d.category,d._id)}>
                     <Image
                       borderRadius="8px"
                       margin={"auto"}
