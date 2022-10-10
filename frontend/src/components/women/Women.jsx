@@ -17,6 +17,7 @@ import {
 } from "@chakra-ui/react";
 import { IoIosAdd } from "react-icons/io";
 import { HiMinusSm } from "react-icons/hi";
+import ReactStars from "react-rating-stars-component";
 
 import axios from "axios";
 import { useSelector } from "react-redux";
@@ -30,6 +31,7 @@ const Women = () => {
     );
     setData(res.data);
   };
+  console.log(data);
   useEffect(() => {
     getWomen();
   });
@@ -45,12 +47,12 @@ const Women = () => {
       })
       console.log("cart",cart)
       console.log("proid",productsId)
+      alert('Added to Cart');
     }
   }
   
   const handlecart=(productsId)=>{
     addproducts(productsId)
-    alert('Added to Cart');
   }
   const navigate=useNavigate();
   const AddProps=(category,id)=>{
@@ -267,7 +269,9 @@ const Women = () => {
                         {d.title}
                       </Text>
                     </Box>
-
+                    <Flex justifyContent={'center'}>
+                      <ReactStars size={20} half={false} value={4}/>
+                    </Flex>
                     <Flex justifyContent={"center"}>
                       <Button m={2} onClick={()=>handlecart(d._id)} colorScheme={"red"}>
                         Add To Cart

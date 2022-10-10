@@ -21,6 +21,7 @@ import { HiMinusSm } from "react-icons/hi";
 
 import axios from "axios";
 import { useSelector } from "react-redux";
+import ReactStars from "react-rating-stars-component";
 
 const Women = () => {
   const [data, setData] = useState([]);
@@ -45,12 +46,12 @@ const Women = () => {
       })
       console.log("cart",cart)
       console.log("proid",productsId)
+      alert('Added to Cart');
     }
   }
 
 const handlecart=(productsId)=>{
   addproducts(productsId)
-  alert('Added to Cart');
 }
 const navigate=useNavigate();
 const AddProps=(category,id)=>{
@@ -267,6 +268,9 @@ const AddProps=(category,id)=>{
                         {d.title}
                       </Text>
                     </Box>
+                    <Flex justifyContent={'center'}>
+                      <ReactStars size={20} half={false} value={4}/>
+                    </Flex>
                     <Flex justifyContent={"center"}>
                       <Button m={2} onClick={()=>handlecart(d._id)} colorScheme={"red"}>
                         Add To Cart
