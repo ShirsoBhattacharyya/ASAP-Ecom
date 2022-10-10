@@ -250,14 +250,16 @@ const Women = () => {
             {data.map((d) => {
               return (
                 <>
-                  <Box width={"100%"}  key={d._id} onClick={()=>AddProps(d.category,d._id)}>
-                    <Image
-                      borderRadius="8px"
-                      margin={"auto"}
-                      mt={3}
-                      height="350px"
-                      src={d.image}
-                    />
+                  <Box width={"100%"}  key={d._id} >
+                    <Box onClick={()=>AddProps(d.category,d._id)}>
+                      <Image
+                        borderRadius="8px"
+                        margin={"auto"}
+                        mt={3}
+                        height="350px"
+                        src={d.image}
+                      />
+                    </Box>
                     <Box height={"20px"}>
                       <Text
                         overflow="hidden"

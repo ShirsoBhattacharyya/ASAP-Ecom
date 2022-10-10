@@ -249,14 +249,16 @@ const AddProps=(category,id)=>{
             {data.map((d) => {
               return (
                 <>
-                  <Box key={d._id} onClick={()=>AddProps(d.category,d._id)}>
-                    <Image
-                      borderRadius="8px"
-                      margin={"auto"}
-                      height="350px"
-                      mt={3}
-                      src={d.image}
-                    />
+                  <Box key={d._id}>
+                    <Box onClick={()=>AddProps(d.category,d._id)}>
+                      <Image
+                        borderRadius="8px"
+                        margin={"auto"}
+                        height="350px"
+                        mt={3}
+                        src={d.image}
+                      />
+                    </Box>
                     <Box height={"20px"}>
                       <Text
                         overflow="hidden"
