@@ -250,7 +250,7 @@ const AddProps=(category,id)=>{
               return (
                 <>
                   <Box key={d._id}>
-                    <Box onClick={()=>AddProps(d.category,d._id)}>
+                    <Box cursor={'pointer'} onClick={()=>AddProps(d.category,d._id)}>
                       <Image
                         borderRadius="8px"
                         margin={"auto"}
