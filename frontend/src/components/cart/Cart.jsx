@@ -10,7 +10,7 @@ import StripeCheckout from 'react-stripe-checkout';
 
 const getCartItems=(id)=>{
 
-return axios.get(`https://asap-backend-server-deploy.herokuapp.com/carts/${id}`)
+return axios.get(`https://asap-backend-production.up.railway.app/carts/${id}`)
 
 
 }
@@ -24,7 +24,7 @@ const Cart = () => {
   let [cartSum,setCartSum]=useState(0);
 
 const handleToken=async(token,addresses)=>{
-  const res=await axios.post(`http://localhost:8000/checkout`,{cartItem,token});
+  const res=await axios.post(`https://asap-backend-production.up.railway.app/checkout`,{cartItem,token});
   console.log(res.status);
   // Stripe.setPublishableKey()
 }

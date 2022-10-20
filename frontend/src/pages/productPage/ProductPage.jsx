@@ -13,7 +13,7 @@ const ProductPage = () => {
   const {category,id}=useParams();
   console.log(category,id);
   const getProductData=(category,id)=>{
-    axios.get(`http://localhost:8000/products/${category}/${id}`).then(res=>setProduct(res.data[0]))
+    axios.get(`https://asap-backend-production.up.railway.app/products/${category}/${id}`).then(res=>setProduct(res.data[0]))
   }
   useEffect(()=>{getProductData(category,id)},[])
   console.log(product);

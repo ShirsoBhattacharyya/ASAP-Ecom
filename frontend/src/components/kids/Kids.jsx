@@ -27,7 +27,7 @@ const Women = () => {
   const [data, setData] = useState([]);
   const getKids = async () => {
     let res = await axios.get(
-      `https://asap-backend-server-deploy.herokuapp.com/products/Kids`
+      `https://asap-backend-production.up.railway.app/products/Kids`
     );
     setData(res.data);
   };
@@ -40,7 +40,7 @@ const Women = () => {
     if(id===""){
       alert('Please Login First')
     }else{
-      let cart=await axios.post(`https://asap-backend-server-deploy.herokuapp.com/carts/${id}`,{
+      let cart=await axios.post(`https://asap-backend-production.up.railway.app/carts/${id}`,{
       productsId,
         quantity:1
       })
